@@ -1,0 +1,3 @@
+# Don't install documentation... it's so slooooow
+gem: --no-ri --no-rdoc
+
