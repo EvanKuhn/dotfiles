@@ -1,0 +1,18 @@
+[user]
+	email = ejkuhn@gmail.com
+	name = Evan Kuhn
+
+[color]
+	ui = true
+
+[core]
+	editor = vim
+	mergeoptions = --no-ff --no-commit
+
+[alias]
+	co = checkout
+
+[github]
+  user = EvanKuhn
+  token = 0be47c021a8b5d6506c4d67a36144ede
+
