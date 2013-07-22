@@ -52,7 +52,7 @@ if [ -f /etc/bash_completion.d/git-shell.sh ]; then
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
-\[\033[32m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\n> '
+PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\n> '
 
 # ssh hostname autocompletion
 complete -W "$(echo $(cat ~/.ssh/known_hosts | \

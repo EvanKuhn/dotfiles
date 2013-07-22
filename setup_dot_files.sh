@@ -7,12 +7,6 @@ cp -v .bashrc ~
 cp -v .gitconfig ~
 cp -v .profile ~
 
-# Copy VIM config files
-echo "Setting up ~/.vim"
-rm -rf ~/.vim
-./setup_vim.sh
-cp -v .vimrc ~
-
 # Set up git
 #echo "Setting up git configs"
 #git config --global --replace-all user.name Evan Kuhn
