@@ -7,12 +7,3 @@ cp -v .bashrc ~
 cp -v .gemrc ~
 cp -v .gitconfig ~
 cp -v .profile ~
-
-# Set up git
-#echo "Setting up git configs"
-#git config --global --replace-all user.name Evan Kuhn
-#git config --global --replace-all user.email ejkuhn@gmail.com 
-#git config --global --replace-all branch.master.mergeoptions --no-ff --no-commit
-#git config --global --replace-all color.ui true
-#git config --global --replace-all core.editor vim
-

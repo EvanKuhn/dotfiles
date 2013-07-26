@@ -15,4 +15,3 @@ https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
 echo "Fetching: git-shell.sh"
 curl -so /etc/bash_completion.d/git-shell.sh \
 https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
-

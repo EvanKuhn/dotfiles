@@ -52,5 +52,3 @@ git clone -q git://github.com/altercation/vim-colors-solarized.git
 # Get rid of git directories
 echo "Deleting git directories under ~/.vim"
 find ~/.vim/ -name .git -type d -exec rm -rf {} \; 2> /dev/null
-
-
