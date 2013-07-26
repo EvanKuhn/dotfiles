@@ -1,5 +1,3 @@
-# Only load this file once
-
 # System-specific command aliases
 system=`uname -s`
 if [ $system == 'Darwin' ]; then

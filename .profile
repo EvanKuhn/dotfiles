@@ -4,20 +4,19 @@
 [ -z "$PS1" ] && return
 
 export PATH=$PATH:/usr/local/sbin
-
-system=`uname -s`
-if [ $system == 'Darwin' ]; then
-  export CC=/usr/bin/gcc-4.2                      # For XCode
-  export JAVA_HOME=`/usr/libexec/java_home`       # For XCode
-  export XDG_DATA_DIRS=:/opt/local/share          # Shared MIME info
-fi
-
 export PATH=$HOME/bin:$PATH
 export BUNDLER_EDITOR=subl                        # For 'bundle open <gem>'
 
+#system=`uname -s`
+#if [ $system == 'Darwin' ]; then
+#  export CC=/usr/bin/gcc-4.2                      # For XCode
+#  export JAVA_HOME=`/usr/libexec/java_home`       # For XCode
+#  export XDG_DATA_DIRS=:/opt/local/share          # Shared MIME info
+#fi
+
 # Load rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
 
 # Load rvm
 #export PATH=$PATH:$HOME/.rvm/bin
