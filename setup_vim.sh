@@ -5,10 +5,6 @@ echo "Moving existing vim files to ~/vim-backup/"
 rm -rf ~/vim-backup
 mkdir ~/vim-backup
 mv ~/.vim ~/vim-backup
-mv ~/.vimrc ~/vim-backup
-
-echo "Creating new .vimrc"
-cp .vimrc ~
 
 echo "Creating new .vim directory"
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
@@ -38,6 +34,14 @@ git clone -q https://github.com/scrooloose/syntastic.git
 
 echo "- vim-colors-solarized"
 git clone -q git://github.com/altercation/vim-colors-solarized.git
+
+echo "- vim-scala"
+git clone -q https://github.com/derekwyatt/vim-scala.git
+
+echo "- vim-nginx"
+mkdir -p ~/.vim/syntax/
+curl -s http://www.vim.org/scripts/download_script.php?src_id=14376 -o ~/.vim/syntax/nginx.vim
+echo "au BufRead,BufNewFile /etc/nginx/conf/* set ft=nginx" >> ~/.vim/filetype.vim
 
 # Install colorschemes
 #echo "Installing colorschemes"
