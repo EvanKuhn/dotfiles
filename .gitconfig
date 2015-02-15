@@ -1,5 +1,5 @@
 [user]
-  email = ejkuhn@gmail.com
+  email = evan@brightroll.com
   name = Evan Kuhn
 
 [color]
@@ -11,11 +11,15 @@
 
 [alias]
   co = checkout
-  gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  gitlog=log --graph --decorate --pretty=oneline --abbrev-commit --all
-  glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %aE %s'
 
-[github]
-  user = EvanKuhn
-  # token = <place token here>
+  # Colors: 0=black 1=red 2=green 3=yellow 4=blue 5=magenta 6=cyan 7=white
+  # Add these to 30 for normal, or 90 for bright (eg: 31 is normal red, 91 is bright red)
+  glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[33m%h%x09%x1b[92m%d%x1b[36m%x20[%ad %an] %x1b[0m%s'
+  hist = log --graph --decorate --oneline --all
 
+  # Other 'git log graph' type aliases
+  # glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %an %s'
+  # gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[push]
+	default = simple

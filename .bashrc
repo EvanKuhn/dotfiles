@@ -1,25 +1,24 @@
 # System-specific command aliases
 system=`uname -s`
+
 if [ $system == 'Darwin' ]; then
-  #echo "Operating System: Darwin (Mac)"
-  alias ls='ls -AG'
+  alias ls='ls -FG'
+  alias ll='ls -FGAlh'
 elif [ $system == 'Linux' ]; then
-  #echo "Operating System: Linux"
-  alias ls='ls -A --color'
+  alias ls='ls -F --color'
+  alias ll='ls -FGAlh --time-style=+"%b %d %Y %H:%M:%S"'
 fi
 
 # Command aliases
-alias ll='ls -lh'
 alias lld='ll | grep -G ^d'
 alias gs='git status'
 alias be='bundle exec'
 alias uninstall_all_gems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
 alias rubypath='ruby -e "puts ENV[\"PATH\"].split(\":\").join(\"\\n\")"'
-alias cloj='java -cp /Users/evan/dev/clojure/clojure.jar clojure.main'
-alias facts='ruby ~/utils/query_api_facts.rb'
+alias csshxify='ruby ~/.utils/csshxify.rb'
 alias edit='subl -n .'
-alias php54='/usr/local/php5-5.4.14-20130505-195324/bin/php'
-alias flumest='curl localhost:54321/metrics 2>/dev/null| python -mjson.tool'
+alias whereami='echo "`whoami`@`hostname`:`pwd`"'
+alias notes='cd ~/notes/ && edit && cd -'
 
 # Copy last command (clc), run last command (rlc)
 alias clc="history | tail -2 | head -1 | tr -s ' ' | cut -d ' ' -f 3- | pbcopy; pbpaste"
@@ -30,14 +29,6 @@ alias last_access_log='echo `ls -1 /var/log/apache2/access* | tail -n 1`'
 alias last_error_log='echo `ls -1 /var/log/apache2/error* | tail -n 1`'
 alias acctail='tail -f `last_access_log`'
 alias errtail='tail -f `last_error_log`'
-
-# Commands for working remotely
-alias ssh-jump-off="cat ~/.ssh/config-base > ~/.ssh/config"
-alias ssh-jump-on="cat ~/.ssh/config-base ~/.ssh/config-jump > ~/.ssh/config"
-alias net-proxy-off="networksetup -setsocksfirewallproxystate Wi-Fi off"
-alias net-proxy-on="networksetup -setsocksfirewallproxystate Wi-Fi on"
-alias work-local="ssh-jump-off && net-proxy-off"
-alias work-remote="ssh-jump-on && net-proxy-on"
 
 # Because Mac provides NO EASY WAY to lock the desktop. Grrr...
 alias saver='/System/Library/Frameworks/ScreenSaver.framework/Versions/Current/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
@@ -61,14 +52,20 @@ fi
 #   sudo curl -o /etc/bash_completion.d/git-completion.bash \
 #   https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
 #
-#   sudo curl -o /etc/bash_completion.d/git-shell.sh \
+#   sudo curl -o /etc/bash_completion.d/git-prompt.sh \
 #   https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 #
 if [ -f /etc/bash_completion.d/git-completion.bash ]; then
   source /etc/bash_completion.d/git-completion.bash
 fi
-if [ -f /etc/bash_completion.d/git-shell.sh ]; then
-  source /etc/bash_completion.d/git-shell.sh
+if [ -f /etc/bash_completion.d/git-prompt.sh ]; then
+  source /etc/bash_completion.d/git-prompt.sh
+fi
+
+# Create __git_ps1 if it doesn't already exist
+if [ `declare -f __git_ps1 > /dev/null; echo $?` != 0 ]
+then
+  __git_ps1 () { echo ""; }
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true

@@ -10,8 +10,8 @@ mkdir -p /etc/bash_completion.d/
 
 echo "Fetching: git-completion.bash"
 curl -so /etc/bash_completion.d/git-completion.bash \
-https://raw.github.com/git/git/master/contrib/completion/git-completion.bash
+  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 echo "Fetching: git-shell.sh"
 curl -so /etc/bash_completion.d/git-shell.sh \
-https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
+  https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh

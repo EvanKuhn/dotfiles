@@ -1,0 +1,30 @@
+
+#-------------------------------------------------------------------------------
+# When working remotely, we want to:
+# - Proxy all traffic through the jump host, so that we can access hosts
+#   on company's internal network.
+# - Proxy traffic to datacenter hosts through an access host in that DC, so
+#   we can access private IP machines with a single SSH command.
+#-------------------------------------------------------------------------------
+
+Host jump
+    ForwardAgent yes
+    Hostname jump.company.com
+    DynamicForward localhost:1080
+
+Host access01
+  Hostname access.dc01.company.com
+  ProxyCommand /usr/bin/nc -x localhost:1080 %h %p
+
+Host access02
+  Hostname access.dc02.company.com
+  ProxyCommand /usr/bin/nc -x localhost:1080 %h %p
+
+Host *.dc01.company.com
+    ProxyCommand ssh access01 -W %h:%p
+
+Host *.dc02.company.com
+    ProxyCommand ssh access02 -W %h:%p
+
+Host *.company.com
+    ProxyCommand /usr/bin/nc -x localhost:1080 %h %p

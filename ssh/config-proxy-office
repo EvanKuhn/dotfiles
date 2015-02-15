@@ -1,0 +1,19 @@
+
+#-------------------------------------------------------------------------------
+# When working in the office, proxy traffic through the "access" host in that
+# datacenter, so we can access private IP machines with a single SSH command.
+#-------------------------------------------------------------------------------
+
+Host access01
+  Hostname access.dc01.company.com
+  DynamicForward localhost:9901
+
+Host access02
+  Hostname access.dc02.company.com
+  DynamicForward localhost:9902
+
+Host *.dc01.company.com
+  ProxyCommand ssh access01 -W %h:%p
+
+Host *.dc02.company.com
+  ProxyCommand ssh access02 -W %h:%p

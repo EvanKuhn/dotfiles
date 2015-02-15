@@ -1,0 +1,8 @@
+#!/bin/bash
+#===============================================================================
+# This script monitors DNS traffic via tcpdump and prints the round-trip time of
+# each request. Requires that the parse_dns_tcpdump.sh script reside in the same
+# directory as this script.
+#===============================================================================
+SCRIPT_DIR=`dirname $0`
+sudo tcpdump -vvv -s 0 -l -n port 53 | $SCRIPT_DIR/parse_dns_tcpdump.php -f

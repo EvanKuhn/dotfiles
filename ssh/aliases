@@ -1,0 +1,15 @@
+# Commands for working remotely
+alias ssh-config-basic="cp ~/.ssh/config-basic ~/.ssh/config"
+alias ssh-config-office="cp ~/.ssh/config-office ~/.ssh/config"
+alias ssh-config-remote="cp ~/.ssh/config-remote ~/.ssh/config"
+
+alias socks-proxy-off="networksetup -setsocksfirewallproxystate Wi-Fi off"
+alias socks-proxy-on="networksetup -setsocksfirewallproxystate Wi-Fi on"
+
+alias work-basic="ssh-config-basic && socks-proxy-off"
+alias work-office="ssh-config-office && socks-proxy-off"
+alias work-remote="ssh-config-remote && socks-proxy-on"
+
+alias jump='ssh jump-sf'
+alias jump01='ssh -D 9901 access01'
+alias jump02='ssh -D 9902 access02'

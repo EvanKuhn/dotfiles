@@ -12,7 +12,8 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
 # Install plugins, starting with Pathogen
 echo "Installing Plugins"
 echo "- Pathogen"
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -Sso ~/.vim/autoload/pathogen.vim \
+  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
 cd ~/.vim/bundle
 
@@ -21,6 +22,9 @@ git clone -q git://github.com/tpope/vim-sensible.git
 
 echo "- MiniBufExpl"
 git clone -q git://github.com/fholgado/minibufexpl.vim.git
+
+echo "- vim-ruby"
+git clone -q git://github.com/vim-ruby/vim-ruby.git
 
 echo "- vim-puppet"
 git clone -q git://github.com/rodjek/vim-puppet.git
