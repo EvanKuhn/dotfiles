@@ -1,0 +1,31 @@
+Host *
+User evan
+ForwardAgent yes
+ConnectTimeout 5
+ConnectionAttempts 3
+ServerAliveInterval 60
+
+# Tell SSH which proxies to use, based on the datacenter number.
+# As a catch-all, forward to the dc01 proxy
+
+Host *.dc01.company.com ops-proxy-dc01
+ProxyCommand /usr/bin/nc -x localhost:9920 %h %p
+
+Host *.dc02.company.com ops-proxy-dc02
+ProxyCommand /usr/bin/nc -x localhost:9921 %h %p
+
+Host *.company.com
+ProxyCommand /usr/bin/nc -x localhost:9920 %h %p
+
+
+# Let the dc01 proxy handle dc01 hosts, generic socks proxy, and generic web proxy
+Host web-proxy-dc01
+Hostname jump.dc01.btrll.com
+DynamicForward 9920
+DynamicForward 1080
+LocalForward 3128 localhost:3128
+
+# The dc02 proxy, for dc02 hosts
+Host web-proxy-dc02
+Hostname jump.dc02.btrll.com
+DynamicForward 9921

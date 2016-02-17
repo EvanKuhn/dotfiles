@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "Terminating existing SSH connections"
+killall ssh
+
+echo "Tunneling to web/ssh proxies"
+ssh -N web-proxy-dc01
+ssh -N web-proxy-dc02
+
+echo "Sleeping"
+sleep 4
+
+echo "Tunneling to ops proxies"
+ssh -N ops-proxy-dc01
+ssh -N ops-proxy-dc02
+
+echo "Tunnels started!"

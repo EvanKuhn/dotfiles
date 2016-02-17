@@ -20,3 +20,11 @@ export EDITOR=vi
 # Load rbenv
 eval "$(rbenv init -)"
 
+# If we have an http proxy up, use it
+nc -z localhost 3128
+result=$?
+if [ $result = 0 ]
+then
+  export http_proxy=http://localhost:3128/
+  export HTTP_PROXY=http://localhost:3128/
+fi
