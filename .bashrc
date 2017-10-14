@@ -16,7 +16,7 @@ alias be='bundle exec'
 alias uninstall_all_gems='gem list | cut -d" " -f1 | xargs gem uninstall -aIx'
 alias rubypath='ruby -e "puts ENV[\"PATH\"].split(\":\").join(\"\\n\")"'
 alias csshxify='ruby ~/.utils/csshxify.rb'
-alias edit='subl -n .'
+alias edit='atom .'
 alias whereami='echo "`whoami`@`hostname`:`pwd`"'
 alias notes='cd ~/notes/ && edit && cd -'
 
@@ -69,7 +69,12 @@ then
 fi
 
 GIT_PS1_SHOWDIRTYSTATE=true
-PS1='\[\033[32m\]\u@\h\[\033[00m\]:\[\033[36m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\n> '
+
+if [[ ${EUID} == 0 ]] ; then
+  PS1='\[\e[94m\][`date +"%T"`] \[\e[31m\]\u@`hostname`\[\e[00m\]:\[\e[96m\]\w\[\e[33m\]$(__git_ps1)\[\e[97m\]\n# \[\e[00m\]'
+else
+  PS1='\[\e[94m\][`date +"%T"`] \[\e[34m\]\u@`hostname`\[\e[00m\]:\[\e[96m\]\w\[\e[33m\]$(__git_ps1)\[\e[97m\]\n$ \[\e[00m\]'
+fi
 
 # ssh hostname autocompletion
 if [ -f ~/.ssh/known_hosts ]; then

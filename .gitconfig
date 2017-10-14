@@ -17,7 +17,3 @@
   glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[33m%h%x09%x1b[92m%d%x1b[36m%x20[%ad %an] %x1b[0m%s'
   hist = log --graph --decorate --oneline --all
 
-  # Other 'git log graph' type aliases
-  # glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %an %s'
-  # gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-
