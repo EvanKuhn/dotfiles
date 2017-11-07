@@ -4,6 +4,7 @@ system=`uname -s`
 if [ $system == 'Darwin' ]; then
   alias ls='ls -FG'
   alias ll='ls -FGAlh'
+  alias hical='cal | grep --color -EC6 "\b$(date +%e | sed "s/ //g")"'
 elif [ $system == 'Linux' ]; then
   alias ls='ls -F --color'
   alias ll='ls -FGAlh --time-style=+"%b %d %Y %H:%M:%S"'

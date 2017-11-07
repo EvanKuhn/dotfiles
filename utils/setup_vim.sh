@@ -12,8 +12,8 @@ mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors
 # Install plugins, starting with Pathogen
 echo "Installing Plugins"
 echo "- Pathogen"
-curl -Sso ~/.vim/autoload/pathogen.vim \
-  https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+curl -LSso ~/.vim/autoload/pathogen.vim \
+  'https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim'
 
 cd ~/.vim/bundle
 
