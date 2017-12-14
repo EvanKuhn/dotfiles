@@ -30,3 +30,8 @@ set hlsearch          " highlight all search results
 "set showmode          " display the current mode
 "set cursorline        " highlight the current line
 
+" make jj do esc
+inoremap jj <Esc>
+
+" make esc do nothing
+inoremap <Esc> <Nop>
