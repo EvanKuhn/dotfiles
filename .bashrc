@@ -32,7 +32,8 @@ alias acctail='tail -f `last_access_log`'
 alias errtail='tail -f `last_error_log`'
 
 # Because Mac provides NO EASY WAY to lock the desktop. Grrr...
-alias saver='/System/Library/Frameworks/ScreenSaver.framework/Versions/Current/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+#alias saver='/System/Library/Frameworks/ScreenSaver.framework/Versions/Current/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine'
+alias saver='open -a /System/Library/CoreServices/ScreenSaverEngine.app'
 alias lock=saver
 
 # Erase duplicates in bash history
