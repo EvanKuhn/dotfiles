@@ -19,7 +19,7 @@ alias rubypath='ruby -e "puts ENV[\"PATH\"].split(\":\").join(\"\\n\")"'
 alias csshxify='ruby ~/.utils/csshxify.rb'
 alias edit='atom .'
 alias whereami='echo "`whoami`@`hostname`:`pwd`"'
-alias notes='cd ~/notes/ && edit && cd -'
+alias notes='cd ~/notes/ && edit . scratch && cd -'
 
 # Copy last command (clc), run last command (rlc)
 alias clc="history | tail -2 | head -1 | tr -s ' ' | cut -d ' ' -f 3- | pbcopy; pbpaste"

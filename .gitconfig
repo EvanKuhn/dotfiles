@@ -8,12 +8,14 @@
 [core]
   editor = vim
   mergeoptions = --no-ff --no-commit
+  pager = less -S
 
 [alias]
   co = checkout
-
   # Colors: 0=black 1=red 2=green 3=yellow 4=blue 5=magenta 6=cyan 7=white
   # Add these to 30 for normal, or 90 for bright (eg: 31 is normal red, 91 is bright red)
-  glog = log --graph --full-history --all --color --date=short --pretty=format:'%x1b[33m%h%x09%x1b[92m%d%x1b[36m%x20[%ad %an] %x1b[0m%s'
+  glog = log --graph --full-history --all --color --date=short --pretty=format:'%C(11)%h%x09%C(82)%d%C(81) [%ad %an] %C(reset)%s'
   hist = log --graph --decorate --oneline --all
 
+[push]
+  default = current

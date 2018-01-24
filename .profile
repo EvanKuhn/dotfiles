@@ -7,7 +7,7 @@ export PATH=/usr/local/sbin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rbenv/bin:$PATH
 
-export BUNDLER_EDITOR=atom                        # For 'bundle open <gem>'
+export BUNDLER_EDITOR=atom # For 'bundle open <gem>'
 export EDITOR=vi
 
 # Load rbenv
